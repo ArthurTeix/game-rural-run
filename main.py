@@ -14,6 +14,11 @@ largura_jogador = 57
 altura_jogador = 114
 jogador = pygame.Rect(231, 470, largura_jogador, altura_jogador)
 
+jogador_img = pygame.image.load("assets/img/Robozin.png").convert_alpha()
+
+# redimensiona a imagem pro tamanho do retângulo do jogador
+jogador_img = pygame.transform.scale(jogador_img, (largura_jogador, altura_jogador))
+
 # cores
 cores = {
     'verde': (0, 255, 0),
@@ -28,17 +33,16 @@ def desenhar_inicio_jogo():
     tela.blit(fundo, (0, 0))
 
     # desenhando jogador na tela
-    pygame.draw.rect(tela, cores['verde'], jogador)
+    tela.blit(jogador_img, jogador)
 
 def movimento_jogador(evento):
     if (evento.type == pygame.KEYDOWN): # se o evento for de pressionar tecla
 
-        if (evento.key == pygame.K_RIGHT) and (jogador.x < 549):
+        if (evento.key == pygame.K_RIGHT) and (jogador.x < 400):
             jogador.x += 1 
 
-        if (evento.key == pygame.K_LEFT) and (jogador.x > 0):
+        if (evento.key == pygame.K_LEFT) and (jogador.x > 3):
             jogador.x -= 1
-        pass
 
 fim_de_jogo = False
 while not fim_de_jogo:
