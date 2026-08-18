@@ -16,7 +16,7 @@ jogador = pygame.Rect(231, 470, largura_jogador, altura_jogador)
 
 # cores
 cores = {
-    'azul': (0, 255, 0),
+    'verde': (0, 255, 0),
     'preto': (0, 0, 0)
 
 }
@@ -28,7 +28,7 @@ def desenhar_inicio_jogo():
     tela.blit(fundo, (0, 0))
 
     # desenhando jogador na tela
-    pygame.draw.rect(tela, cores['azul'], jogador)
+    pygame.draw.rect(tela, cores['verde'], jogador)
 
 def movimento_jogador(evento):
     if (evento.type == pygame.KEYDOWN): # se o evento for de pressionar tecla
