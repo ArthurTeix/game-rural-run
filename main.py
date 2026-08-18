@@ -14,6 +14,7 @@ fundo = pygame.image.load("assets/img/background.png")
 # configurações do jogador
 largura_jogador = 57
 altura_jogador = 114
+velocidade_jogador = 1
 jogador = pygame.Rect(231, 470, largura_jogador, altura_jogador)
 
 jogador_img = pygame.image.load("assets/img/Robozin.png").convert_alpha()
@@ -57,13 +58,13 @@ def desenhar_inicio_jogo():
 
 
 def movimento_jogador(evento):
-    if (evento.type == pygame.KEYDOWN):
-        if (evento.key == pygame.K_RIGHT) and (jogador.x < 400):
-            jogador.x += 10
+    tecla = pygame.key.get_pressed()
 
-        if (evento.key == pygame.K_LEFT) and (jogador.x > 3):
-            jogador.x -= 10
+    if (tecla[pygame.K_RIGHT] or tecla[pygame.K_d]) and jogador.x < largura_tela - largura_jogador: 
+        jogador.x += velocidade_jogador
 
+    if (tecla[pygame.K_LEFT] or tecla[pygame.K_a]) and jogador.x > 0:
+        jogador.x -= velocidade_jogador
 
 def criar_obstaculo():
     x = randint(30, 405)  # obstaculos nascem aleatoriamente entre o px 30 e 405 de largura
@@ -99,7 +100,7 @@ while not fim_de_jogo:
             for quant in range(quantidade_por_vez):
                 criar_obstaculo()
 
-        movimento_jogador(evento)
+    movimento_jogador(evento)
 
     mover_obstaculos()
 
