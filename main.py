@@ -33,7 +33,7 @@ obstaculo_img = pygame.transform.scale(obstaculo_img, (largura_obstaculo, altura
 
 # criar obstáculos periodicamente
 criar_obstaculos = pygame.USEREVENT + 1
-pygame.time.set_timer(criar_obstaculos, 1100)  # a cada 1seg
+pygame.time.set_timer(criar_obstaculos, 1000)  # a cada 1seg
 
 # cores
 cores = {
@@ -67,7 +67,7 @@ def movimento_jogador(evento):
         jogador.x -= velocidade_jogador
 
 def criar_obstaculo():
-    x = randint(30, 405)  # obstaculos nascem aleatoriamente entre o px 30 e 405 de largura
+    x = randint(15, 405)  # obstaculos nascem aleatoriamente entre o px 30 e 405 de largura
     novo_obstaculo = pygame.Rect(x, -altura_obstaculo, largura_obstaculo, altura_obstaculo)
     lista_obstaculos.append(novo_obstaculo)
 
