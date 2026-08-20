@@ -22,7 +22,7 @@ jogador_img = pygame.image.load("assets/img/Robozin.png").convert_alpha()
 jogador_img = pygame.transform.scale(jogador_img, (largura_jogador, altura_jogador))
 
 # configurações dos obstáculos
-largura_obstaculo = 57
+largura_obstaculo = 80
 altura_obstaculo = 40
 velocidade_obstaculo = 1
 
@@ -33,7 +33,7 @@ obstaculo_img = pygame.transform.scale(obstaculo_img, (largura_obstaculo, altura
 
 # criar obstáculos periodicamente
 criar_obstaculos = pygame.USEREVENT + 1
-pygame.time.set_timer(criar_obstaculos, 1000)  # a cada 1seg
+pygame.time.set_timer(criar_obstaculos, 700)  # a cada 0.7seg
 
 # cores
 cores = {
